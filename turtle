@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #turtle {
+                width: 100px;
+                height: auto;
+                transition: 2s linear transform;
+            }
+            #turtle:hover {
+                cursor: pointer;
+            }
+            body {
+                background-image: url('grass.jpg');
+                color: white;
+            }
+            #foodlevel, #waterlevel {
+                width: 200px;
+                height: 30px;
+                -webkit-slider-runnable-track: #26ff00;
+            }
+            #levels {
+                width: 220px;
+                height: 80px;
+                background-color: #945dcf;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                right: 0px;
+                top: 0px;
+                position: fixed;
+            }
+        </style>
+    <title>turtle</title>
+    </head>
+    <body>
+        <h1>turtle game</h1>
+        <p>THIS IS SO BAD LOL</p>
+        <div id="levels">
+            <label for="foodlevel">Food</label>
+            <input type="range" name="foodlevel" id="foodlevel" max="100" min="0" value="75" disabled>
+            <label for="waterlevel">Water</label>
+            <input type="range" name="waterlevel" id="waterlevel" max="100" min="0" value="75" disabled>
+        </div>
+        <img id="turtle" onclick="turtleclick()" src="stupid turtle.png">
+    </body>
+            <script>
+            const height = document.documentElement.clientHeight;
+            const width = document.documentElement.clientWidth;
+            const foodlvl = document.getElementById("foodlevel");
+            const waterlvl = document.getElementById("waterlevel");
+
+            function randomIntFromInterval(min, max) { // min and max included 
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            } // thanks stack overflow :3
+
+            setInterval(foodlvl.value -= 1, 500);
+            setInterval(turtleglide, randomIntFromInterval(2000, 5000));
+
+            console.log("greg");
+            function turtleclick() {
+                alert("i dont have an mp3 of what turtle sounds a turtle makes");
+            }
+            function turtleglide() {
+                let randY = Math.floor((Math.random() * height) + 1);
+                let randX = Math.floor((Math.random() * width) + 1);
+              console.log(foodlvl.value);
+                document.getElementById("turtle").style.transform = `translate(${randX}px, ${randY}px)`;
+            }
+        </script>
+</html>
